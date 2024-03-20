@@ -8,6 +8,11 @@ const config: Config = {
         amber: {
           900: '#803c04'
         },
+        dark_layout: '#000000',
+        light_layout: '#ffffff',
+        gray: {
+          500: '#2b2b2b'
+        }
       },
       fontFamily: {
         sans: 'var(--font-inter)',
