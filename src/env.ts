@@ -4,6 +4,7 @@ import { z } from 'zod'
 export const env = createEnv({
   server: {
     APP_URL: z.string().url(),
+    APP_LOCAL_URL: z.string().url(),
   },
 
   client: {
@@ -12,6 +13,7 @@ export const env = createEnv({
 
   runtimeEnv: {
     APP_URL: process.env.APP_URL,
+    APP_LOCAL_URL: process.env.APP_LOCAL_URL,
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   },
 })
