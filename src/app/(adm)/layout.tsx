@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description: 'Manage your dream team',
 }
 
-export default function RootLayout({  
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>  
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-light_layout dark:bg-dark_layout`}
       >
@@ -27,9 +27,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header>
+          <header className="pb-6">
             <Header />
           </header>
+
           <main className="px-24">{children}</main>
         </ThemeProvider>
       </body>

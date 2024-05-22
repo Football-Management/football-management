@@ -6,13 +6,17 @@ const config: Config = {
     extend: {
       colors: {
         amber: {
-          900: '#803c04'
+          900: '#803c04',
+        },
+        green: {
+          500: '#26ca5e',
         },
         dark_layout: '#000000',
         light_layout: '#ffffff',
         gray: {
-          500: '#2b2b2b'
-        }
+          400: '#999999',
+          500: '#2b2b2b',
+        },
       },
       fontFamily: {
         sans: 'var(--font-inter)',
@@ -22,9 +26,8 @@ const config: Config = {
       },
     },
   },
-  darkMode: ["class"],
+  darkMode: ['class'],
   plugins: [],
 }
 
 export default config
-

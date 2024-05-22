@@ -15,18 +15,17 @@ export default function Header() {
             <Menu />
           </li>
           <li>
-            <Link href="/finances" className="text-amber-900 dark:text-white">
+            <Link href="/finances" className="text-black dark:text-white">
               Financeiro
             </Link>
           </li>
           <li>
-            <Link href="/players" className="text-amber-900 dark:text-white">
+            <Link href="/players" className="text-black dark:text-white">
               Atletas
             </Link>
           </li>
         </ul>
       </nav>
-      <h1>Football Management</h1>
       <ToggleButton />
     </header>
   )

@@ -1,42 +1,72 @@
+import Button from '@/components/button'
+import Card from '@/components/card'
 import { api } from '@/data/api'
 import Image from 'next/image'
+import { WeeklyReport } from './(components)/weekly-report'
 
 interface ClubResponse {
   name: string
   embled: string
+  assets: number
+  number_players: number
+  current_season: number
 }
 
-async function getClub(): Promise<ClubResponse[]> {
-  const response = await api('user', {
+async function getTeam(): Promise<ClubResponse[]> {
+  const response = await api('team', {
     next: {
       revalidate: 60 * 60, // 1 hour
     },
   })
 
-  const club = response.json()
-  return club
+  const team = response.json()
+  return team
 }
 
 export default async function Home() {
-  const [data] = await getClub()
+  const [data] = await getTeam()
+
+  const assets = data.assets.toLocaleString('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+  })
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2">
-      <div className="md:col-span-1 md:w-1/4">
-        <div className="flex flex-col items-center">
-          <Image src={data?.embled} width={70} height={70} alt="" />
-          <p>{data?.name}</p>
-          <button>Ver perfil</button>
+    <section className="grid grid-cols-1 md:grid-cols-2 md:gap-2">
+      <Card>
+        <div>
+          <div className="flex flex-col items-center space-y-2">
+            <Image src={data?.embled} width={90} height={90} alt="" />
+            <p>{data?.name}</p>
+            <Button variant="primary">Ver perfil</Button>
+          </div>
+
+          <div className="flex justify-center space-x-12 bg-white dark:bg-black p-2 pt-4">
+            <div>
+              <p className="text-center text-sm text-gray-400">Patrimônio</p>
+              <p className="text-center font-semibold">{assets}</p>
+            </div>
+
+            <div>
+              <p className="text-center text-sm text-gray-400">Elenco</p>
+              <p className="text-center font-semibold">
+                {data?.number_players}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-center text-sm text-gray-400">Temporada</p>
+              <p className="text-center font-semibold">
+                {data?.current_season}
+              </p>
+            </div>
+          </div>
         </div>
-   
-        <div className="bg-white dark:bg-black p-2 pt-4">
-          <p className="text-center">
-            Patrimônio
-            <span>$ 20.000.000</span>
-          </p>
-        </div>
-      </div>
-      <div className="md:col-span-1 md:w-3/4">grid-2</div>
+      </Card>
+
+      <Card>
+        <WeeklyReport />
+      </Card>
     </section>
   )
 }

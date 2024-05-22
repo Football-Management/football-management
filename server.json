@@ -1,8 +1,11 @@
 {
-  "user": [
+  "team": [
     {
-      "name": "MAN UNITED",
-      "embled": "https://github.com/luukhopman/football-logos/blob/master/logos/2022-23/GB1/Manchester%20United.png?raw=true"
+      "name": "MANCHESTER UNITED",
+      "embled": "https://github.com/luukhopman/football-logos/blob/master/logos/2022-23/GB1/Manchester%20United.png?raw=true",
+      "assets": 200000000,
+      "number_players": 30,
+      "current_season": "2024/2025"
     }
   ]
 }
