@@ -1,9 +1,10 @@
+import Card from '@/components/card'
 import { PieChart } from '@/components/charts/pie-chart'
 
 export function WeeklyReport() {
   return (
-    <div>
-      <PieChart width={400} height={200} />
-    </div>
+    <Card title="Resumo semanal">
+      <PieChart width={160} height={200} />
+    </Card>
   )
 }
