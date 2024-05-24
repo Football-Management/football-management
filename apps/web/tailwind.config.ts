@@ -11,8 +11,8 @@ const config: Config = {
         green: {
           500: '#26ca5e',
         },
-        dark_layout: '#000000',
-        light_layout: '#ffffff',
+        dark_layout: '#263238',
+        light_layout: '#F4F7FA',
         gray: {
           400: '#999999',
           500: '#2b2b2b',
