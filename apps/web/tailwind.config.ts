@@ -6,6 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         amber: {
+          400: '#f3d28a',
           900: '#803c04',
         },
         green: {

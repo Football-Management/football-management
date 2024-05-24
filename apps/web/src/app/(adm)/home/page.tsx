@@ -3,6 +3,7 @@ import Card from '@/components/card'
 import { api } from '@/data/api'
 import Image from 'next/image'
 import { WeeklyReport } from './(components)/weekly-report'
+import { PlayerStatus } from './(components)/player-status'
 
 interface ClubResponse {
   name: string
@@ -70,7 +71,9 @@ export default async function Home() {
         <WeeklyReport />
       </div>
 
-      <div className="md:col-span-2 bg-red-600">...</div>
+      <div className="md:col-span-2">
+        <PlayerStatus />
+      </div>
     </section>
   )
 }

@@ -7,5 +7,48 @@
       "number_players": 30,
       "current_season": "2024/2025"
     }
+  ],
+  "finances": [],
+  "players": [
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    },
+    {
+      "name": "Rashford",
+      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
+      "position": "ST"
+    }
   ]
 }
