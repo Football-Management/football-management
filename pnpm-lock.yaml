@@ -88,7 +88,7 @@ importers:
   config/eslint-config:
     devDependencies:
       '@football-management/prettier':
-        specifier: workspace:*
+        specifier: '*'
         version: link:../prettier
       '@rocketseat/eslint-config':
         specifier: ^1.2.0

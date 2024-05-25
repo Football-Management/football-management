@@ -10,6 +10,12 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.0",
-    "@football-management/prettier": "workspace:*"
+    "@football-management/prettier": "*"
+  },
+  "prettier": "@football-management/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "./library.js"
+    ]
   }
 }
