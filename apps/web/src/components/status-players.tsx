@@ -14,21 +14,29 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
           strokeWidth="1px"
           className="fill-green-400"
           absoluteStrokeWidth
+          size={20}
         />
       ) : status === 'happy' ? (
         <Smile
           strokeWidth="1px"
           className="fill-green-400"
           absoluteStrokeWidth
+          size={20}
         />
       ) : status === 'neutral' ? (
         <Meh
           strokeWidth="1px"
           className="fill-yellow-300"
           absoluteStrokeWidth
+          size={20}
         />
       ) : status === 'sad' ? (
-        <Frown strokeWidth="1px" className="fill-red-500" absoluteStrokeWidth />
+        <Frown
+          strokeWidth="1px"
+          className="fill-red-500"
+          absoluteStrokeWidth
+          size={20}
+        />
       ) : null}
     </div>
   )

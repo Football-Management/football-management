@@ -1,5 +1,6 @@
 import { api } from '@/data/api'
 import PlayerSlider from './player-slider'
+import Card from '@/components/card'
 
 async function getPlayers() {
   const response = await api('players', {
@@ -16,8 +17,8 @@ export async function PlayerStatus() {
   const players = await getPlayers()
 
   return (
-    <div>
+    <Card>
       <PlayerSlider players={players} />
-    </div>
+    </Card>
   )
 }

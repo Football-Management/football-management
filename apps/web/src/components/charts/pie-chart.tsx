@@ -57,11 +57,9 @@ export function PieChart({ width, height }: PieChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-1 text-sm border border-gray-300 rounded-md shadow-lg top-8">
+        <div className="bg-white p-1 text-sm border border-gray-300 rounded-md shadow-lg relative">
           <p className="font-semibold">{label}</p>
-          <p>
-            <strong>Value:</strong> {payload[0].value}
-          </p>
+          <p>{payload[0].name}</p>
         </div>
       )
     }
