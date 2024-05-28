@@ -23,7 +23,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@rocketseat/eslint-config": "^1.2.0",
+    "@football-management/eslint-config": "workspace:*",
+    "@football-management/tailwind-config": "workspace:^",
+    "@football-management/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

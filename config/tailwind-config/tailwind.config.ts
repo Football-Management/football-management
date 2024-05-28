@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 
-const config: Omit<Config, 'content'> = {
+const config: Omit<Config, "content"> = {
   content: ['./src/**/*.tsx'],
   theme: {
     extend: {
@@ -33,11 +33,8 @@ const config: Omit<Config, 'content'> = {
       fontFamily: {
         sans: 'var(--font-inter)',
       },
-      gridTemplateColumns: {
-        '16': 'repeat(16, minmax(0, 1fr))',
-      },
       gridTemplateRows: {
-        '7': 'repeat(7, minmax(0, 1fr))',
+        app: 'min-content max-content',
       },
     },
   },

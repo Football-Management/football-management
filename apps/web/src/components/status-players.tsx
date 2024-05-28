@@ -12,14 +12,14 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
       {status === 'very_happy' ? (
         <Smile
           strokeWidth="1px"
-          className="fill-green-400"
+          className="fill-green-400 border-black"
           absoluteStrokeWidth
           size={19}
         />
       ) : status === 'happy' ? (
         <Smile
           strokeWidth="1px"
-          className="fill-green-400"
+          className="fill-green-400 border-black"
           absoluteStrokeWidth
           size={19}
         />
