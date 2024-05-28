@@ -15,7 +15,7 @@ interface PlayerSliderProps {
   players: Player[]
 }
 
-export default function PlayerSlider({ players }: PlayerSliderProps) {
+export function PlayerSlider({ players }: PlayerSliderProps) {
   return (
     <SliderCoverflow>
       {players.map((player, index) => (

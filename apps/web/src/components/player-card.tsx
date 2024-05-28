@@ -8,10 +8,13 @@ interface PlayerCard {
 
 export default function PlayerCard({ player }: PlayerCard) {
   return (
-    <section className="flex flex-col items-center justify-center  p-6 rounded-md">
-      <div className="bg-slate-500 rounded-md cursor-pointer">
-        <div className="flex justify-end p-1">
+    <section className="flex flex-col items-center justify-center p-6 rounded-md [background:repeating-linear-gradient(30deg,_#1a5a13_0px,_#1a5a13_60px,_#196114_60px,_#196114_130px)]">
+      <div className="bg-amber-200 rounded-md cursor-pointer">
+        <div className="absolute top-10 ml-3">
           <StatusPlayers status="very_happy" />
+          <p className="text-sm text-brown-700 font-semibold">
+            {player.position}
+          </p>
         </div>
         <div className="py-1 px-4">
           <Image
@@ -20,8 +23,9 @@ export default function PlayerCard({ player }: PlayerCard) {
             height={120}
             alt={player.name}
           />
-          <p className="text-sm text-white">{player.name}</p>
-          <p className="text-md text-white font-semibold">{player.position}</p>
+          <p className="text-sm text-center text-brown-700 font-semibold">
+            {player.name}
+          </p>
         </div>
       </div>
     </section>
