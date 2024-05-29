@@ -1,5 +1,5 @@
 import Card from '@/components/card'
-// import { PieChart } from '@/components/charts/pie-chart'
+import { PieChart } from '@/components/charts/pie-chart'
 
 interface IconProps {
   className?: string
@@ -64,7 +64,9 @@ export function WeeklyReport() {
           <p className="font-semibold text-2xl">2.000.000,00</p>
         </section>
 
-        <section>{/* <PieChart width={120} height={120} /> */}</section>
+        {/* <section className="relative">
+          <PieChart width={130} height={130} />
+        </section> */}
       </div>
     </Card>
   )

@@ -7,7 +7,7 @@ interface CircleProps {
 
 export default function Circle({ variant = 'green' }: CircleProps) {
   const variantStyles = {
-    red: 'bg-red-500 hover:bg-slate-50',
+    red: 'bg-red-500 hover:bg-red-700',
     green: 'bg-green-500 hover:bg-green-600',
   }
 

@@ -1,8 +1,8 @@
 {
   "team": [
     {
-      "name": "MANCHESTER UNITED",
-      "embled": "https://github.com/luukhopman/football-logos/blob/master/logos/2022-23/GB1/Manchester%20United.png?raw=true",
+      "name": "Real Madrid Club de Fútbol",
+      "embled": "https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/ES1/Real%20Madrid.png",
       "assets": 200000000,
       "number_players": 30,
       "current_season": "2024/2025"
@@ -11,44 +11,119 @@
   "finances": [],
   "players": [
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Thibaut Courtois",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/192119.png?v=23",
+      "position": "Goalkeeper"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Andriy Lunin",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/243952.png?v=23",
+      "position": "Goalkeeper"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Kepa Arrizabalaga",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/206585.png?v=23",
+      "position": "Goalkeeper"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Dani Carvajal",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/204963.png?v=23",
+      "position": "Defender"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Éder Militão",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/240130.png?v=23",
+      "position": "Defender"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "David Alaba",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/197445.png?v=23",
+      "position": "Defender"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Nacho",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/200724.png?v=23",
+      "position": "Defender"
     },
     {
-      "name": "Rashford",
-      "photo": "https://cdn.futwiz.com/assets/img/fifa22/faces/100894973.png",
-      "position": "ST"
+      "name": "Fran García",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/246606.png?v=23",
+      "position": "Defender"
+    },
+    {
+      "name": "Antonio Rüdiger",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/205452.png?v=23",
+      "position": "Defender"
+    },
+    {
+      "name": "Ferland Mendy",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/228618.png?v=23",
+      "position": "Defender"
+    },
+    {
+      "name": "Jude Bellingham",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/252371.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Toni Kroos",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/182521.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Luka Modrić",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/177003.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Eduardo Camavinga",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/248243.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Federico Valverde",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/239053.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Lucas Vázquez",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/208618.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Aurélien Tchouameni",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/241637.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Dani Ceballos",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/222509.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Brahim Díaz",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/231410.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Arda Güler",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/264309.png?v=23",
+      "position": "Midfielder"
+    },
+    {
+      "name": "Vinícius Júnior",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/238794.png?v=23",
+      "position": "Forward"
+    },
+    {
+      "name": "Rodrygo",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/243812.png?v=23",
+      "position": "Forward"
+    },
+    {
+      "name": "Joselu",
+      "photo": "https://cdn.futbin.com/content/fifa24/img/players/173608.png?v=23",
+      "position": "Forward"
     }
   ]
 }

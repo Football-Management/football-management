@@ -12,15 +12,17 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
       {status === 'very_happy' ? (
         <Smile
           strokeWidth="1px"
-          className="fill-green-400 border-black"
+          className="fill-green-400"
           absoluteStrokeWidth
+          color="black"
           size={19}
         />
       ) : status === 'happy' ? (
         <Smile
           strokeWidth="1px"
-          className="fill-green-400 border-black"
+          className="fill-green-400"
           absoluteStrokeWidth
+          color="black"
           size={19}
         />
       ) : status === 'neutral' ? (
@@ -28,6 +30,7 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
           strokeWidth="1px"
           className="fill-yellow-300"
           absoluteStrokeWidth
+          color="black"
           size={19}
         />
       ) : status === 'sad' ? (
@@ -35,6 +38,7 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
           strokeWidth="1px"
           className="fill-red-500"
           absoluteStrokeWidth
+          color="black"
           size={19}
         />
       ) : null}

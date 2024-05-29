@@ -71,7 +71,7 @@ export function PieChart({ width, height }: PieChartProps) {
     <PieChartWrapper width={width} height={height}>
       <Pie
         data={data}
-        innerRadius={40}
+        innerRadius={50}
         outerRadius={60}
         paddingAngle={0.5}
         maxRadius={60}

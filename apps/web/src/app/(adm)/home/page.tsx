@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { WeeklyReport } from './(components)/weekly-report'
 import { PlayerStatus } from './(components)/player-status'
 import { TeamMomentum } from './(components)/team-momentum'
+import NextMatches from './(components)/next-matches'
 
 interface ClubResponse {
   name: string
@@ -36,9 +37,9 @@ export default async function Home() {
   return (
     <section>
       <div className="pb-2">
-        <Card title="Próximos jogos">Próximos jogos</Card>
+        <NextMatches />
       </div>
-      <div className="grid grid-flow-col gap-2 items-stretch h-1/2">
+      <div className="grid grid-flow-col gap-2 items-stretch h-auto">
         <div className="row-span-3">
           <Card>
             <div className="flex flex-col items-center space-y-2">
@@ -49,7 +50,9 @@ export default async function Home() {
 
             <div className="flex justify-center space-x-12 bg_primary_light dark:bg_primary_dark p-2 pt-4">
               <div>
-                <p className="text-center text-sm text-gray-400">Patrimônio</p>
+                <p className="text-center text-sm text-gray-400">
+                  Patrimônio atual
+                </p>
                 <p className="text-center font-semibold">{assets}</p>
               </div>
 
