@@ -9,8 +9,8 @@ export function TeamMomentum() {
         <div>
           <p>Últimas cinco partidas: </p>
           <div className="flex gap-1">
-            <Circle variant="green" />
-            <Circle variant="green" />
+            <Circle variant="neutral" />
+            <Circle variant="neutral" />
             <Circle variant="green" />
             <Circle variant="green" />
             <Circle variant="green" />

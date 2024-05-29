@@ -1,12 +1,11 @@
 import Image from 'next/image'
-import React from 'react'
 import BVB from '../../../../../public/bvb.png'
 import RealMadrid from '../../../../../public/realmadrid.png'
 import Card from '@/components/card'
 
 export default function NextMatches() {
   return (
-    <Card title="Próximos jogos">
+    <Card title="Próximo jogo">
       <div className="flex flex-col items-center gap-2">
         <div>
           <p>Liga dos Campeões sáb., 01/06, 16:00</p>

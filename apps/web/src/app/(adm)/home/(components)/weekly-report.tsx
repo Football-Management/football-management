@@ -64,9 +64,9 @@ export function WeeklyReport() {
           <p className="font-semibold text-2xl">2.000.000,00</p>
         </section>
 
-        {/* <section className="relative">
+        <section className="relative">
           <PieChart width={130} height={130} />
-        </section> */}
+        </section>
       </div>
     </Card>
   )

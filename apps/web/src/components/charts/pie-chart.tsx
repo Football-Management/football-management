@@ -7,6 +7,7 @@ import {
   Tooltip,
   Label,
   TooltipProps,
+  ResponsiveContainer,
 } from 'recharts'
 
 interface PieChartProps {
@@ -20,10 +21,10 @@ interface PieData {
 }
 
 const data: PieData[] = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Transferência', value: 400 },
+  { name: 'Salários', value: 300 },
+  { name: 'Receita bilheteria', value: 300 },
+  { name: 'Venda de camisas', value: 200 },
 ]
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
@@ -43,7 +44,7 @@ export function PieChart({ width, height }: PieChartProps) {
         y={cy}
         textAnchor="middle"
         dominantBaseline="central"
-        fill="#000"
+        className="fill-black dark:fill-white"
       >
         {activeValue}
       </text>
@@ -57,9 +58,9 @@ export function PieChart({ width, height }: PieChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-1 text-sm border border-gray-300 rounded-md shadow-lg relative">
-          <p className="font-semibold dark:text-white">{label}</p>
-          <p className="dark:text-white">{payload[0].name}</p>
+        <div className="bg-white p-1 text-sm border border-gray-300 rounded-md shadow-lg relative top-5 left-20">
+          <p className="font-semibold dark:text-black">{label}</p>
+          <p className="dark:text-black">{payload[0].name}</p>
         </div>
       )
     }
@@ -68,26 +69,33 @@ export function PieChart({ width, height }: PieChartProps) {
   }
 
   return (
-    <PieChartWrapper width={width} height={height}>
-      <Pie
-        data={data}
-        innerRadius={50}
-        outerRadius={60}
-        paddingAngle={0.5}
-        maxRadius={60}
-        dataKey="value"
-        onMouseEnter={handleMouseEnter}
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
+    <div className="w-20 h-20">
+      <ResponsiveContainer>
+        <PieChartWrapper>
+          <Pie
+            data={data}
+            innerRadius={27}
+            outerRadius={37}
+            paddingAngle={0.5}
+            maxRadius={60}
+            dataKey="value"
+            onMouseEnter={handleMouseEnter}
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
 
-        <Label
-          content={<CustomLabel viewBox={undefined} />}
-          position="center"
-        />
-      </Pie>
-      <Tooltip content={<CustomTooltip />} />
-    </PieChartWrapper>
+            <Label
+              content={<CustomLabel viewBox={undefined} />}
+              position="center"
+            />
+          </Pie>
+          <Tooltip content={<CustomTooltip />} />
+        </PieChartWrapper>
+      </ResponsiveContainer>
+    </div>
   )
 }
