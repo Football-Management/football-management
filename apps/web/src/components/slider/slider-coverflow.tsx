@@ -1,22 +1,22 @@
-'use client'
+'use client';
 
-import 'swiper/css/effect-coverflow'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/swiper-bundle.css';
 
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
-import { Swiper } from 'swiper/react'
-import { ReactNode } from 'react'
+import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import { Swiper } from 'swiper/react';
+import { ReactNode } from 'react';
 
 interface SliderCoverflowProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default function SliderCoverflow({ children }: SliderCoverflowProps) {
   return (
     <Swiper
-      effect="coverflow"
+      effect='coverflow'
       grabCursor={true}
       centeredSlides={true}
       slidesPerView={3}
@@ -32,5 +32,5 @@ export default function SliderCoverflow({ children }: SliderCoverflowProps) {
     >
       {children}
     </Swiper>
-  )
+  );
 }

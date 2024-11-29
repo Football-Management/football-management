@@ -1,9 +1,19 @@
-import { env } from '@/env'
+import { env } from '@/env';
 
 export function api(path: string, init?: RequestInit) {
-  const baseUrl = env.APP_LOCAL_URL
-  // const apiPrefix = '/api'
-  const url = new URL(path, baseUrl)
+  const baseUrl = env.NEXT_PUBLIC_API_BASE_URL;
+  const url = new URL(path, baseUrl);
 
-  return fetch(url, init)
+  const token = localStorage.getItem('@token');
+
+  const headers = {
+    ...init?.headers,
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  };
+
+  return fetch(url, {
+    ...init,
+    headers,
+  });
 }

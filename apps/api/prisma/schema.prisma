@@ -3,9 +3,99 @@
 
 generator client {
   provider = "prisma-client-js"
+  seed = "ts-node seed.ts"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Club {
+  id                      String    @id @default(uuid())
+  name                    String                    @unique
+  email                   String                   @unique
+  password                String
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime?                 @updatedAt
+  financialTransactions   FinancialTransaction[] 
+
+  @@map("clubs")
+}
+
+model FinancialTransaction {
+  id                      Int                       @id @default(autoincrement())
+  transactionDate         DateTime
+  transactionCategory     TransactionCategory       @relation(fields: [transactionCategoryId], references: [id])
+  transactionCategoryId   Int
+  amount                  Float
+  category                String?
+  source                  SourceDestination?        @relation(fields: [sourceDestinationId], references: [id])
+  sourceDestinationId     Int?
+  recurrence              Recurrence?               @relation(fields: [recurrenceId], references: [id])
+  recurrenceId            Int?
+  seasonality             Seasonality?              @relation(fields: [seasonalityId], references: [id])
+  seasonalityId           Int?
+  expectedAmount          Float?
+  projected               Boolean                   @default(false)
+  createdAt               DateTime                  @default(now())
+  club                    Club?                     @relation(fields: [clubId], references: [id])
+  clubId                  String?
+
+  @@map("financial_transactions")
+}
+
+model SourceDestination {
+  id                      Int                       @id @default(autoincrement())
+  name                    String
+  type                    SourceCategory            @relation(fields: [typeId], references: [id])
+  typeId                  Int
+  description             String?
+  transactions            FinancialTransaction[]
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+
+  @@map("source_destinations")
+}
+
+model SourceCategory {
+  id                      Int                       @id @default(autoincrement())
+  name                    String                    @unique
+  description             String?
+  sources                 SourceDestination[]
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+
+  @@map("source_categories")
+}
+
+model TransactionCategory {
+  id                      Int                       @id @default(autoincrement())
+  name                    String                    @unique
+  description             String?
+  transactions            FinancialTransaction[]
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+
+  @@map("transaction_categories")
+}
+
+model Recurrence {
+  id                      Int                       @id @default(autoincrement())
+  name                    String                    @unique
+  description             String?
+  transactions            FinancialTransaction[]
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+
+  @@map("recurrences")
+}
+
+model Seasonality {
+  id                      Int                       @id @default(autoincrement())
+  tag                     String
+  description             String?
+  transactions            FinancialTransaction[]
+
+  @@map("seasonalities")
 }

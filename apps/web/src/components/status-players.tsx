@@ -1,9 +1,9 @@
-import { Smile, Meh, Frown } from 'lucide-react'
+import { Smile, Meh, Frown } from 'lucide-react';
 
-type Status = 'very_happy' | 'happy' | 'neutral' | 'sad'
+type Status = 'very_happy' | 'happy' | 'neutral' | 'sad';
 
 interface PlayersStatusProps {
-  status: Status
+  status: Status;
 }
 
 export default function PlayersStatus({ status }: PlayersStatusProps) {
@@ -11,37 +11,37 @@ export default function PlayersStatus({ status }: PlayersStatusProps) {
     <div>
       {status === 'very_happy' ? (
         <Smile
-          strokeWidth="1px"
-          className="fill-green-400"
+          strokeWidth='1px'
+          className='fill-green-400'
           absoluteStrokeWidth
-          color="black"
+          color='black'
           size={19}
         />
       ) : status === 'happy' ? (
         <Smile
-          strokeWidth="1px"
-          className="fill-green-400"
+          strokeWidth='1px'
+          className='fill-green-400'
           absoluteStrokeWidth
-          color="black"
+          color='black'
           size={19}
         />
       ) : status === 'neutral' ? (
         <Meh
-          strokeWidth="1px"
-          className="fill-yellow-300"
+          strokeWidth='1px'
+          className='fill-yellow-300'
           absoluteStrokeWidth
-          color="black"
+          color='black'
           size={19}
         />
       ) : status === 'sad' ? (
         <Frown
-          strokeWidth="1px"
-          className="fill-red-500"
+          strokeWidth='1px'
+          className='fill-red-500'
           absoluteStrokeWidth
-          color="black"
+          color='black'
           size={19}
         />
       ) : null}
     </div>
-  )
+  );
 }

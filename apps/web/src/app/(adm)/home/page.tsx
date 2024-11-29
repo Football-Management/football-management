@@ -1,39 +1,13 @@
 import Button from '@/components/button'
 import Card from '@/components/card'
-import { api } from '@/data/api'
 import Image from 'next/image'
 import { WeeklyReport } from './(components)/weekly-report'
-import { PlayerStatus } from './(components)/player-status'
-import { TeamMomentum } from './(components)/team-momentum'
 import NextMatches from './(components)/next-matches'
-
-interface ClubResponse {
-  name: string
-  embled: string
-  assets: number
-  number_players: number
-  current_season: number
-}
-
-async function getTeam(): Promise<ClubResponse[]> {
-  const response = await api('team', {
-    next: {
-      revalidate: 60 * 60, // 1 hour
-    },
-  })
-
-  const team = response.json()
-  return team
-}
+import LogoAnapolis from '../../../../public/logo-anapolis-go.png'
+import { MonthlyReport } from './(components)/monthly-report'
+import FinancialPrediction from './(components)/financial-prediction'
 
 export default async function Home() {
-  const [data] = await getTeam()
-
-  const assets = data.assets.toLocaleString('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-  })
-
   return (
     <section>
       <div className="pb-2">
@@ -43,8 +17,10 @@ export default async function Home() {
         <div className="row-span-3">
           <Card>
             <div className="flex flex-col items-center space-y-2">
-              <Image src={data?.embled} width={90} height={90} alt="" />
-              <p>{data?.name}</p>
+              <Image src={LogoAnapolis} width={90} height={90} alt="" />
+              <p className="text-black dark:text-white">
+                Anápolis Futebol Clube
+              </p>
               <Button variant="primary">Ver perfil</Button>
             </div>
 
@@ -53,20 +29,15 @@ export default async function Home() {
                 <p className="text-center text-sm text-gray-400">
                   Patrimônio atual
                 </p>
-                <p className="text-center font-semibold">{assets}</p>
-              </div>
-
-              <div>
-                <p className="text-center text-sm text-gray-400">Elenco</p>
-                <p className="text-center font-semibold">
-                  {data?.number_players}
+                <p className="text-center font-semibold text-black dark:text-white">
+                  2.000.000,00
                 </p>
               </div>
 
               <div>
                 <p className="text-center text-sm text-gray-400">Temporada</p>
-                <p className="text-center font-semibold">
-                  {data?.current_season}
+                <p className="text-center font-semibold text-black dark:text-white">
+                  2024
                 </p>
               </div>
             </div>
@@ -76,12 +47,12 @@ export default async function Home() {
           <WeeklyReport />
         </div>
         <div className="row-span-2 col-span-2">
-          <TeamMomentum />
+          <MonthlyReport />
         </div>
       </div>
 
       <div className="pt-2">
-        <PlayerStatus />
+        <FinancialPrediction />
       </div>
     </section>
   )

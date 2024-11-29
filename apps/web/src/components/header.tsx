@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
 import ToggleButton from './toggle-button'
 
 export default function Header() {
@@ -12,16 +11,13 @@ export default function Header() {
       <nav>
         <ul className="flex justify-between  list-none space-x-2">
           <li>
-            <Menu />
-          </li>
-          <li>
-            <Link href="/finances" className="text-black dark:text-white">
-              Financeiro
+            <Link href="/finance" className="text-black dark:text-white">
+              Home
             </Link>
           </li>
           <li>
-            <Link href="/players" className="text-black dark:text-white">
-              Atletas
+            <Link href="/finance" className="text-black dark:text-white">
+              Financeiro
             </Link>
           </li>
         </ul>

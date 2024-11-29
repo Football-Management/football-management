@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
-import PlayerCard from '@/components/player-card'
-import SliderCoverflow from '@/components/slider/slider-coverflow'
+import PlayerCard from '@/components/player-card';
+import SliderCoverflow from '@/components/slider/slider-coverflow';
 
-import { SwiperSlide } from 'swiper/react'
+import { SwiperSlide } from 'swiper/react';
 
 export type Player = {
-  photo: string
-  name: string
-  position: string
-}
+  photo: string;
+  name: string;
+  position: string;
+};
 
 interface PlayerSliderProps {
-  players: Player[]
+  players: Player[];
 }
 
 export function PlayerSlider({ players }: PlayerSliderProps) {
@@ -24,5 +24,5 @@ export function PlayerSlider({ players }: PlayerSliderProps) {
         </SwiperSlide>
       ))}
     </SliderCoverflow>
-  )
+  );
 }
