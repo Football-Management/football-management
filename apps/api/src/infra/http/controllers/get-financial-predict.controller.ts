@@ -1,10 +1,10 @@
 import { Controller, Get, Param, BadRequestException } from "@nestjs/common";
-import { PredictFinancialHealthUseCase } from "src/domain/finance/application/use-cases/get-balance";
+import { FinancialPredictHealthUseCase } from "@/domain/finance/application/use-cases/get-financial-predict";
 
-@Controller("balance")
+@Controller("financial-predict")
 export class FinancialTransactionController {
   constructor(
-    private readonly getBalanceUseCase: PredictFinancialHealthUseCase,
+    private readonly getBalanceUseCase: FinancialPredictHealthUseCase,
   ) {}
 
   @Get(":clubId")
@@ -14,8 +14,8 @@ export class FinancialTransactionController {
     if (result.isLeft()) {
       throw new BadRequestException();
     }
-    const predictFinancial = result.value.predictions;
+    const financialPredict = result.value.financialPredict;
 
-    return { predictFinancial };
+    return { financialPredict };
   }
 }

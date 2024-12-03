@@ -14,6 +14,11 @@ interface AuthenticateClubUseCaseRequest {
 type AuthenticateClubUseCaseResponse = Either<
   WrongCredentialsError,
   {
+    user: {
+      id: any;
+      name: string;
+      email: string;
+    };
     accessToken: string;
   }
 >;
@@ -51,6 +56,11 @@ export class AuthenticateClubUseCase {
 
     return right({
       accessToken,
+      user: {
+        id: club.id,
+        name: club.name,
+        email: club.email,
+      },
     });
   }
 }

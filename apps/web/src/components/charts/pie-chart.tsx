@@ -56,7 +56,7 @@ export function PieChart({ data, width = 200, height = 200 }: PieChartProps) {
     const { cx, cy } = viewBox || {}
     const nameToShow = truncateText(
       activeName !== null ? activeName : initialValue?.name || '',
-      12,
+      9,
     )
     const valueToShow = formatDecimalNumber(
       activeValue !== null ? activeValue : initialValue?.value || 0,

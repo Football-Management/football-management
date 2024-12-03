@@ -7,8 +7,8 @@ import { RegisterClubUseCase } from "@/domain/finance/application/use-cases/regi
 import { CryptographyModule } from "../cryptography/cryptography.module";
 import { DatabaseModule } from "../database/database.module";
 import { Module } from "@nestjs/common";
-import { FinancialTransactionController } from "./controllers/fetch-balance.controller";
-import { PredictFinancialHealthUseCase } from "@/domain/finance/application/use-cases/get-balance";
+import { FinancialTransactionController } from "./controllers/get-financial-predict.controller";
+import { FinancialPredictHealthUseCase } from "@/domain/finance/application/use-cases/get-financial-predict";
 import { TensorFlowService } from "../tensorflow/tensorflow.service";
 import { GetWeeklySummaryController } from "./controllers/get-weekly-summary.controller";
 import { GetWeeklySummaryUseCase } from "@/domain/finance/application/use-cases/get-weekly-summary";
@@ -32,7 +32,7 @@ import { GetMonthlySummaryUseCase } from "@/domain/finance/application/use-cases
     CreateTransactionUseCase,
     RegisterClubUseCase,
     AuthenticateClubUseCase,
-    PredictFinancialHealthUseCase,
+    FinancialPredictHealthUseCase,
     GetWeeklySummaryUseCase,
     GetMonthlySummaryUseCase,
     GetTransactionsSummaryUseCase,

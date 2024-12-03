@@ -6,8 +6,8 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import Input from '@/components/input'
 import Button from '@/components/button'
-import { signIn } from '@/services/auth'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 
 const SignInSchema = z.object({
   email: z.string().email('E-mail inválido.').min(1, 'Informe o seu email'),
@@ -25,8 +25,8 @@ const SignInDefaultValues = {
 export type SignInData = z.infer<typeof SignInSchema>
 
 export default function SignIn() {
-  const router = useRouter() 
-  
+  const router = useRouter()
+
   const {
     control,
     handleSubmit,
@@ -38,39 +38,66 @@ export default function SignIn() {
 
   async function handleSubmitSignIn(data: SignInData) {
     try {
-    const response = await signIn(data)
-    localStorage.setItem('@token', response.access_token);
-    router.push('/home')
-    console.log(response)
+      const response = await signIn('auth-tidi', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      })
+
+      console.log(response)
+
+      if (response?.error) {
+        console.error('Erro no login:', response.error)
+        return
+      }
+
+      router.push('/home')
     } catch (error) {
-      console.log(error)
+      console.error('Erro inesperado:', error)
     }
   }
-
   return (
     <form onSubmit={handleSubmit(handleSubmitSignIn)}>
-    <main  
-      className="h-screen bg-no-repeat bg-cover bg-center p-8"
-      style={{
-        backgroundImage: `url(${Stadium.src})`,
-      }}
-    >
-      {/* <div className="absolute inset-0 bg-black opacity-50" /> */}
-
-      <section className="flex h-full overflow-hidden justify-end items-center">
-        <div>
-          <p className="text-white text-2xl font-bold">
-            Enter com as credencias do clube
-          </p>
-          <p className="text-white text-2xl font-bold">
-            abaixo entre com email e senha
-          </p>
-          <Input control={control} name="email" errors={errors} label="Email" />
-          <Input control={control} name="password" errors={errors} label="Senha" />
-          <Button>Entrar</Button>
+      <main className="h-screen flex">
+        <div className="relative w-1/2 flex justify-center items-center">
+          <h1 className="font-semibold text-lg z-10">Football Management</h1>
+          <div
+            className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-70"
+            style={{
+              backgroundImage: `url(${Stadium.src})`,
+            }}
+          ></div>
         </div>
-      </section>
-    </main>
+
+        <section className="w-1/2 flex justify-center items-center bg-[#151a28]">
+          <div className="p-6 rounded-lg max-w-md w-full">
+            <h1 className="text-white text-lg text-center font-semibold">
+              Olá novamente!
+            </h1>
+            <p className="text-white text-md font-medium">
+              Abaixo, entre com seu email e senha para continuar
+            </p>
+            <div className="space-y-6 p-4">
+              <Input
+                control={control}
+                className="border-white"
+                name="email"
+                errors={errors}
+                label="Email"
+              />
+              <Input
+                control={control}
+                className="border-white"
+                name="password"
+                type="password"
+                errors={errors}
+                label="Senha"
+              />
+              <Button title="Entrar" className="w-full" />
+            </div>
+          </div>
+        </section>
+      </main>
     </form>
   )
 }

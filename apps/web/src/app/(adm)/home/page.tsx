@@ -6,8 +6,17 @@ import NextMatches from './(components)/next-matches'
 import LogoAnapolis from '../../../../public/logo-anapolis-go.png'
 import { MonthlyReport } from './(components)/monthly-report'
 import FinancialPrediction from './(components)/financial-prediction'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export default async function Home() {
+  const session = await getServerSession(nextAuthOptions)
+
+  if (!session) {
+    redirect('/')
+  }
+
   return (
     <section>
       <div className="pb-2">
@@ -21,7 +30,7 @@ export default async function Home() {
               <p className="text-black dark:text-white">
                 Anápolis Futebol Clube
               </p>
-              <Button variant="primary">Ver perfil</Button>
+              <Button variant="default" title="Ver perfil" />
             </div>
 
             <div className="flex justify-center space-x-12 bg_primary_light dark:bg_primary_dark p-2 pt-4">
@@ -30,7 +39,7 @@ export default async function Home() {
                   Patrimônio atual
                 </p>
                 <p className="text-center font-semibold text-black dark:text-white">
-                  2.000.000,00
+                  5.400.000,00
                 </p>
               </div>
 

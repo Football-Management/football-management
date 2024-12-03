@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import ToggleButton from './toggle-button'
+import BtnLogout from '@/app/(auth)/sign-in/(components)/btn-logout'
 
 export default function Header() {
   return (
@@ -11,18 +14,16 @@ export default function Header() {
       <nav>
         <ul className="flex justify-between  list-none space-x-2">
           <li>
-            <Link href="/finance" className="text-black dark:text-white">
+            <Link href="/home" className="text-black dark:text-white">
               Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/finance" className="text-black dark:text-white">
-              Financeiro
             </Link>
           </li>
         </ul>
       </nav>
-      <ToggleButton />
+      <div className="flex space-x-4">
+        <ToggleButton />
+        <BtnLogout />
+      </div>
     </header>
   )
 }

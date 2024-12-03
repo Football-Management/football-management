@@ -122,7 +122,10 @@ export class PrismaTransactionRepository {
           ? 100
           : 0;
 
-    const formattedPercentageChange = Number(percentageChange.toFixed(2));
+    const formattedPercentageChange = Math.min(
+      Math.max(Number(percentageChange.toFixed(2)), -100),
+      100,
+    );
 
     const categories = transactions.reduce(
       (acc, t) => {
@@ -214,7 +217,10 @@ export class PrismaTransactionRepository {
           ? 100
           : 0;
 
-    const formattedPercentageChange = Number(percentageChange.toFixed(2));
+    const formattedPercentageChange = Math.min(
+      Math.max(Number(percentageChange.toFixed(2)), -100),
+      100,
+    );
 
     const categories = transactions.reduce(
       (acc, t) => {
