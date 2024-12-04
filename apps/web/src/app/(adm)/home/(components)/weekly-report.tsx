@@ -102,7 +102,7 @@ export async function WeeklyReport() {
               <DownIcon className="text-red-500 fill-current w-7 h-7" />
             )}
             <p className="text-sm text-black dark:text-white">
-              + {data?.percentageChange}%
+              {data?.percentageChange}%
             </p>
           </div>
           <p className="font-semibold text-2xl text-black dark:text-white">

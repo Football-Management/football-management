@@ -3,10 +3,21 @@ import { TransactionRepository } from "@/domain/finance/application/repositories
 import { Either, right } from "@/core/either";
 import * as tf from "@tensorflow/tfjs";
 
+type GroupedByMonth = {
+  [year: number]: {
+    [month: number]: number;
+  };
+};
+
 type FinancialPredictHealthResponse = Either<
   null,
   {
-    financialPredict: any;
+    financialPredict: {
+      nextMonthPrediction: number;
+      nextQuarterPrediction: number;
+      nextYearPrediction: number;
+      financialClassification: string;
+    };
   }
 >;
 
@@ -19,27 +30,30 @@ export class FinancialPredictHealthUseCase {
     const currentMonth = currentDate.getMonth() + 1; // O mês atual (1-12)
 
     // Dados de entrada (meses) e saída (receitas)
-    const transactions: any[] =
+    const transactions =
       await this.transactionRepository.findAllByClubId(clubId);
 
-    const groupedByMonth = transactions.reduce((acc: any, transaction) => {
-      const month = new Date(transaction.transactionDate).getMonth() + 1;
-      const year = new Date(transaction.transactionDate).getFullYear();
+    const groupedByMonth = transactions.reduce(
+      (acc: GroupedByMonth, transaction) => {
+        const month = new Date(transaction.transactionDate).getMonth() + 1;
+        const year = new Date(transaction.transactionDate).getFullYear();
 
-      // Verifica se a categoria é de "Receita"
-      if (transaction.transactionCategoryId === 1) {
-        if (!acc[year]) {
-          acc[year] = {};
+        // Verifica se a categoria é de "Receita"
+        if (transaction.transactionCategoryId === 1) {
+          if (!acc[year]) {
+            acc[year] = {};
+          }
+
+          if (!acc[year][month]) {
+            acc[year][month] = 0;
+          }
+
+          acc[year][month] += transaction.amount;
         }
-
-        if (!acc[year][month]) {
-          acc[year][month] = 0;
-        }
-
-        acc[year][month] += transaction.amount;
-      }
-      return acc;
-    }, {});
+        return acc;
+      },
+      {},
+    );
 
     // Função para agrupar e somar as receitas por mês
     const months = Array.from({ length: 12 }, (_, i) => i + 1);
@@ -118,13 +132,6 @@ export class FinancialPredictHealthUseCase {
       classification = "Negativo"; // Entre 0% e -10% inferior
     } else {
       classification = "Muito Negativo"; // < -10% inferior
-
-      console.log(
-        predictedMonthValue.toFixed(2),
-        predictedQuarterValue.toFixed(2),
-        predictedYearValue.toFixed(2),
-        classification,
-      );
     }
 
     return right({

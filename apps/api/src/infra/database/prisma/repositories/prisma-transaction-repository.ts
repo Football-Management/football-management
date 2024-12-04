@@ -158,7 +158,7 @@ export class PrismaTransactionRepository {
     topCategories: { category: string; amount: number }[];
   }> {
     const today = new Date();
-    const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    const startOfMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
 
     const transactions = await this.prisma.financialTransaction.findMany({
       where: {

@@ -60,7 +60,9 @@ export default function SignIn() {
     <form onSubmit={handleSubmit(handleSubmitSignIn)}>
       <main className="h-screen flex">
         <div className="relative w-1/2 flex justify-center items-center">
-          <h1 className="font-semibold text-lg z-10">Football Management</h1>
+          <h1 className="font-semibold text-lg z-10 dark:white">
+            Football Management
+          </h1>
           <div
             className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-70"
             style={{
@@ -93,7 +95,7 @@ export default function SignIn() {
                 errors={errors}
                 label="Senha"
               />
-              <Button title="Entrar" className="w-full" />
+              <Button title="Entrar" className="w-full dark:bg-white" />
             </div>
           </div>
         </section>
